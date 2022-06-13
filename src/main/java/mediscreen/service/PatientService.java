@@ -35,4 +35,12 @@ public class PatientService {
 		List<Patient> allPatients = patientRepository.findAll();
 		return allPatients;
 	}
+	
+	public Patient updatePatient(Patient patientToUpdate, Patient patientUpdated) throws DoesNotExistsException {
+		Patient currentPatient = patientToUpdate;
+		currentPatient.setAddress(patientUpdated.getAddress());
+		currentPatient.setCity(patientUpdated.getCity());
+		currentPatient.setPhone(patientUpdated.getPhone());
+		return patientRepository.save(currentPatient);
+	}
 }

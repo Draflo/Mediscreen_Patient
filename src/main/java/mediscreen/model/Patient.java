@@ -51,12 +51,12 @@ public class Patient {
 	@Column(name = "birthdate")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	@JsonDeserialize(using = LocalDateDeserializer.class)
-	private LocalDate birthDate;
+	private LocalDate birthdate;
 	
 	@NotBlank
 	@Pattern(regexp = "M|F")
-	@Column(name = "gender")
-	private String gender;
+	@Column(name = "sex")
+	private String sex;
 
 	@Length(max = 20, message = "Maximum 20 characters")
 	@Column(name = "phone")
@@ -81,7 +81,7 @@ public class Patient {
 	}
 		
 	public void setDob(LocalDate dob) {
-			birthDate = dob;
+			birthdate = dob;
 	}
 	
 
