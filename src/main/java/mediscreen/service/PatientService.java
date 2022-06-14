@@ -37,10 +37,9 @@ public class PatientService {
 	}
 	
 	public Patient updatePatient(Patient patientToUpdate, Patient patientUpdated) throws DoesNotExistsException {
-		Patient currentPatient = patientToUpdate;
-		currentPatient.setAddress(patientUpdated.getAddress());
-		currentPatient.setCity(patientUpdated.getCity());
-		currentPatient.setPhone(patientUpdated.getPhone());
-		return patientRepository.save(currentPatient);
+		patientToUpdate.setAddress(patientUpdated.getAddress());
+		patientToUpdate.setCity(patientUpdated.getCity());
+		patientToUpdate.setPhone(patientUpdated.getPhone());
+		return patientRepository.save(patientToUpdate);
 	}
 }
